@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import ContextProvider from './state/Provider'
-import './index.css';
+import './_base.scss';
 import App from './App';
 
 ReactDOM.render(

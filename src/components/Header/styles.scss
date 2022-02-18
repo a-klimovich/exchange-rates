@@ -1,0 +1,21 @@
+header {
+  background-color: aquamarine;
+  width: 100%;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+    font-size: 2rem;
+
+    li {
+      text-align: center;
+      margin:0 25px;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

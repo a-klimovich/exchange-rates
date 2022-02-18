@@ -9,19 +9,17 @@ const getFetchData = async (url) => {
   return json;
 }
 
-const fetchData = async () => {
-    const baseReqToRendor = [431, 429, 451, 456, 457, 469, 482, 480, 493]
+const fetchData = async (fireBase) => {
+  const currencies = await getFetchData(`${BASE_URLS.currencies}`)
 
-    const rates = await Promise.all(
-      baseReqToRendor.map((item) => getFetchData(`${BASE_URLS.rates}${item}`))
-    )
+  const rates = await Promise.all(
+    fireBase.map((item) => getFetchData(`${BASE_URLS.rates}${item}`))
+  )
 
-    const currencies = await getFetchData(`${BASE_URLS.currencies}`)
-
-    return {
-      firstPageDate: [...rates],
-      allExchangeDate: [...currencies]
-    }
+  return {
+    firstPageDate: [...rates],
+    allExchangeDate: [...currencies]
+  }
 }
 
 export default fetchData
