@@ -1,12 +1,20 @@
+import { useContext } from 'react'
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
-
+import Context from './state/Context'
+import ReactLoading from 'react-loading'
 
 function App() {
-  return (
+  const { isLoading } = useContext(Context)
+
+  return isLoading ? (
+    <div className='loading'>
+      <ReactLoading type="spin" color="#AC49FF" width={45} />
+    </div>
+  ) : (
     <div className="App">
       <Header>
         <ul>
@@ -23,9 +31,8 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
-
     </div>
-  );
+  )
 }
 
 export default App;
